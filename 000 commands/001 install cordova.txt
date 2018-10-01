@@ -1,11 +1,13 @@
+///////////
+//УСТАНОВКА
+///////////
+
 01 install node js
-02 install cordova - sudo install -g cordova
+02 install cordova - (sudo install -g cordova)
 03 instal Java SE Development Kit 8 Downloads
 04 install Android Studio
-05 заходим в android sdk и создаем новый файл(для скачивания дополнительных файлов)
-
-05 проверяем состояние
-cordova requirements
+05 заходим в android sdk и создаем новый файл (программе нужно скачать дополнительные файлы)
+06 проверяем состояние (cordova requirements)
 
 //если проблема с gradle
 //устанавливаем его через пакетный менеджер brew - https://gradle.org/install/
@@ -14,18 +16,32 @@ cordova requirements
 //Please install Android target / API level: "android-27"
 заходим в android sdk - prefences - appearance & behavior - system settings - android sdk - android 9.0 8.1 8.0
 
+//////////
+//СОЗДАНИЕ
+//////////
 
-
-05
-cordova create 001_test1 com.example.hello HelloWorld
 //hello - название папки, HelloWorld - название приложения
+01 (cordova create 001_test1 com.example.hello HelloWorld)
 
 
-// заходим в папку с проектом и добавляем платформу
-06
-cordova platform add android
+
+// В ПАПКЕ ПРОЕКТА - добавляем платформу
+02
+(cordova platform add android)
 or
-07 cordova platform add ios
+(cordova platform add ios)
 
-//build
-08 cordova build android
+//build (файл apk находится в platforms/android/app/build/outputs/apk/debug)
+03 cordova build android
+
+//////////
+//GIT
+//////////
+01 пушим только папку www
+
+*
+!/www
+!/www/**
+!.npmignore
+
+
