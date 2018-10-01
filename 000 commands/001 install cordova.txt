@@ -17,7 +17,7 @@ cordova requirements
 
 
 05
-cordova create 001_test2 com.example.hello HelloWorld
+cordova create 001_test1 com.example.hello HelloWorld
 //hello - название папки, HelloWorld - название приложения
 
 
