@@ -1,0 +1,23 @@
+@import "../scss/main";
+
+.Block_MainPage{
+	border: 1px dashed red;
+	.Main{
+		font-style: italic;
+		color: green;
+		&-bold{
+			@extend .Main;
+			order: 2;
+			font-style: normal;
+			font-weight: 900;
+		}
+
+		@include respond-down(md){
+			border:1px dashed red;
+		}
+		@include respond-up(lg){
+			background: grey;
+		}
+	}
+	
+}
