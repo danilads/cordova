@@ -4,7 +4,8 @@ import './Block_MainPage.scss';
 class Block_MainPage extends React.PureComponent {
 	state={
 		text:"text1",
-		txt:"hi"
+		txt:"hi",
+		color:"white"
 	}
 
 	initialPoint: "";
@@ -25,28 +26,26 @@ class Block_MainPage extends React.PureComponent {
 		var xAbs = Math.abs(document.initialPoint.pageX - document.finalPoint.pageX);
 		var yAbs = Math.abs(document.initialPoint.pageY - document.finalPoint.pageY);
 		if (xAbs > 20 || yAbs > 20) {
-		if (xAbs > yAbs) {
-			if (document.finalPoint.pageX < document.initialPoint.pageX){
-				/*СВАЙП ВЛЕВО*/
-					this.setState({txt:Math.random()})
-					document.body.style.backgroundColor = "#"+this.mR()+this.mR()+this.mR();
+			let rand = this.mR();
+			if (xAbs > yAbs) {
+				if (document.finalPoint.pageX < document.initialPoint.pageX){
+					/*СВАЙП ВЛЕВО*/
+					this.setState({txt:rand,color:rand})
+					
 				}
-			else{
+				else{
 					/*СВАЙП ВПРАВО*/
-					this.setState({txt:Math.random()})
-					document.body.style.backgroundColor = "#"+this.mR()+this.mR()+this.mR();
+					this.setState({txt:rand,color:rand})
 				}
 			}
 			else {
 				if (document.finalPoint.pageY < document.initialPoint.pageY){
 					/*СВАЙП ВВЕРХ*/
-					this.setState({txt:Math.random()})
-					document.body.style.backgroundColor = "#"+this.mR()+this.mR()+this.mR();
+					this.setState({txt:rand,color:rand})
 				}
 				else{
 					/*СВАЙП ВНИЗ*/
-					this.setState({txt:Math.random()})
-					document.body.style.backgroundColor = "#"+this.mR()+this.mR()+this.mR();
+					this.setState({txt:rand,color:rand})
 				}
 			}
 		}
@@ -62,7 +61,7 @@ class Block_MainPage extends React.PureComponent {
 	}
 	
 	mR=()=>{
-		return Math.round(Math.random()*100);
+		return '#'+Math.round(Math.random()*100)+Math.round(Math.random()*100)+Math.round(Math.random()*100);
 	}
 	runClick=()=>{
 		alert("WATAFAK");
@@ -75,7 +74,7 @@ class Block_MainPage extends React.PureComponent {
 	}
   	render() {
 		return (
-			<div className="Block_MainPage container-fluid">
+			<div className="Block_MainPage container-fluid" style={{backgroundColor:this.state.color}}>
 
 				<div className="row no-gutters">
 					<div className="col-12"><Filter>{this.state.txt}</Filter></div>
