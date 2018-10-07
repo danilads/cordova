@@ -3,99 +3,65 @@ import Filter from '../primitives/Filter';
 import './Block_MainPage.scss';
 class Block_MainPage extends React.PureComponent {
 	state={
-		text:"text1",
-		txt:"hi",
-		color:"white"
+		input:"",
+		storage:"",
+
 	}
 
-	initialPoint: "";
-	finalPoint: "";
-		
-	touchStart(event){
-		//event.preventDefault();
-		event.stopPropagation();
-		
-		this.initialPoint=event.changedTouches[0];
-		
+	getStorage=(e)=>{
+		console.log('--1',e)
 	}
-	touchEnd=(event)=>{
-		//event.preventDefault();
-		console.log(document);
-		event.stopPropagation();
-		document.finalPoint=event.changedTouches[0];
-		var xAbs = Math.abs(document.initialPoint.pageX - document.finalPoint.pageX);
-		var yAbs = Math.abs(document.initialPoint.pageY - document.finalPoint.pageY);
-		if (xAbs > 20 || yAbs > 20) {
-			let rand = this.mR();
-			if (xAbs > yAbs) {
-				if (document.finalPoint.pageX < document.initialPoint.pageX){
-					/*СВАЙП ВЛЕВО*/
-					this.setState({txt:rand,color:rand})
-					
-				}
-				else{
-					/*СВАЙП ВПРАВО*/
-					this.setState({txt:rand,color:rand})
-				}
-			}
-			else {
-				if (document.finalPoint.pageY < document.initialPoint.pageY){
-					/*СВАЙП ВВЕРХ*/
-					this.setState({txt:rand,color:rand})
-				}
-				else{
-					/*СВАЙП ВНИЗ*/
-					this.setState({txt:rand,color:rand})
-				}
-			}
-		}
+	edit=()=>{
+		console.log('set');
+		localStorage.setItem('someKey', this.state.input)
+		console.log('--get',localStorage.getItem('someKey'))
 	}
-		  
-	componentDidMount(){
-		document.addEventListener("touchstart", this.touchStart, false);
-		document.addEventListener('touchend', this.touchEnd, false);
-	}
-	componentWillUnmount(){
-		document.removeEventListener("touchstart", this.touchStart, false);
-		document.removeEventListener('touchend', this.touchEnd, false);
+	set=(e)=>{
+		this.setState({input:e.target.value})
 	}
 	
-	mR=()=>{
-		return '#'+Math.round(Math.random()*100)+Math.round(Math.random()*100)+Math.round(Math.random()*100);
+	componentDidMount(){
+		//window.addEventListener('storage', this.getStorage, false);
+		document.addEventListener("storage", function () {
+			// do your checks to detect
+			console.log('DETECT');
+			// changes in "e1", "e2" & "e3" here
+		}, false);
+		window.addEventListener('storage',function () {
+			// do your checks to detect
+			console.log('DETECT');
+			// changes in "e1", "e2" & "e3" here
+		}, false);
+		
 	}
-	runClick=()=>{
-		alert("WATAFAK");
-		if(this.state.text==="text1"){
-			this.setState({text:"run"});
-		}
-		else if(this.state.text==="run"){
-			this.setState({text:"text1"});
-		}
+	componentWillUnmount(){
+		//window.removeEventListener("storage", this.getStorage, false);
+		document.addEventListener("storage", function () {
+			// do your checks to detect
+			console.log('DETECT');
+			// changes in "e1", "e2" & "e3" here
+		}, false);
 	}
+	
+	
   	render() {
 		return (
 			<div className="Block_MainPage container-fluid" style={{backgroundColor:this.state.color}}>
-
 				<div className="row no-gutters">
-					<div className="col-12"><Filter>{this.state.txt}</Filter></div>
+					{this.state.storage}
 				</div>
 				<div className="row no-gutters">
-					<div className="col-xs-3 Main-bold">1</div>
-					<div className="col-xs-3 Main">2</div>
-					<div className="col-xs-3 Main">3</div>
-					<div className="col-xs-3 Main">4</div>
-				</div>
-				<div className="row no-gutters btn">
-					<div className="col-12" onClick={this.runClick} style={{height:"200px"}}>{this.state.text}</div>
+					<input onChange={this.set} value={this.state.input} style={{width:"100%"}} type={"text"}/>
 				</div>
 				<div className="row no-gutters">
-					<input style={{width:"100%"}} type={"text"}/>
+					<input onClick={this.edit} style={{width:"100%"}} value="add to storage" type={"button"}/>
 				</div>
 			</div>
 			
 		);
 
-  	}
+	  }
+	  
 
 }
 
