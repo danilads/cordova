@@ -31,7 +31,7 @@
 or
 (cordova platform add ios)
 
-//build (файл apk находится в platforms/android/app/build/outputs/apk/debug)
+//BUILD (файл apk находится в platforms/android/app/build/outputs/apk/debug)
 03 cordova build android
 
 //////////
