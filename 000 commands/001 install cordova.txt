@@ -45,3 +45,11 @@ or
 !.npmignore
 
 
+//////////
+//plugins
+//////////
+
+cordova plugin add cordova-plugin-screen-orientation
+
+//пишем в body
+//screen.orientation.lock('landscape');

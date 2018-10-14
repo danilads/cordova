@@ -3,7 +3,29 @@
 @import "grid"; //сетка
 
 
-
+.def{
+	background-color: #fff;
+	zoom: 100%;
+}
+.zoomIn{
+	background-color: #fec;
+	zoom: 120%;
+}
+.zoomOut{
+	background-color: #fce;
+	zoom: 80%;
+}
+.zoomInIn{
+	background-color: #cef;
+	zoom: 140%;
+}
+.zoomOutOut{
+	background-color: #cfe;
+	zoom: 60%;
+}
+body{
+	border: 1px dashed red;
+}
 
 
 //Grid fix

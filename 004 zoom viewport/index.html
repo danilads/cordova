@@ -9,5 +9,11 @@
 <body> 
   <div id="container"></div> 
   <script src="bundle.js"></script>
+  <script>
+	  //глобальная функция изменяющая html
+		var g_l = function(inp){
+			document.getElementsByTagName("html")[0].className=inp;
+		}
+  </script>
 </body> 
 </html>
