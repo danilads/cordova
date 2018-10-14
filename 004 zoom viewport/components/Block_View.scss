@@ -1,0 +1,12 @@
+.Block_View{
+	border: 1px solid green;
+	height: 200px;
+	width: auto;
+	overflow: auto;
+	.View{
+		font-size: 3em;
+		color: blue;
+		height: 200px;
+		width: 5000px;
+	}
+}

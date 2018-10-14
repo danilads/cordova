@@ -6,22 +6,37 @@
 .def{
 	background-color: #fff;
 	zoom: 100%;
+	.View{
+		font-size: 3em;
+	}
 }
 .zoomIn{
 	background-color: #fec;
 	zoom: 120%;
+	.View{
+		font-size: 4em;
+	}
 }
 .zoomOut{
 	background-color: #fce;
 	zoom: 80%;
+	.View{
+		font-size: 2em;
+	}
 }
 .zoomInIn{
 	background-color: #cef;
 	zoom: 140%;
+	.View{
+		font-size: 5em;
+	}
 }
 .zoomOutOut{
 	background-color: #cfe;
 	zoom: 60%;
+	.View{
+		font-size: 1em;
+	}
 }
 body{
 	border: 1px dashed red;

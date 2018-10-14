@@ -1,6 +1,7 @@
 import React,{Fragment} from 'react';
-import Filter from '../primitives/Filter';
 import './Block_MainPage.scss';
+import Block_View from './Block_View';
+
 class Block_MainPage extends React.PureComponent {
 	
 	run=(e)=>{
@@ -28,8 +29,11 @@ class Block_MainPage extends React.PureComponent {
 					<input type="button" value="change html(default)" onClick={()=>this.run(1)}/>
 					<input type="button" value="масштаб (zoom +)" onClick={()=>this.run(2)}/>
 					<input type="button" value="масштаб (zoom -)" onClick={()=>this.run(3)}/>
-					<input type="button" value="приближение (scale +)" onClick={()=>this.run(4)}/>
-					<input type="button" value="приближение (scale -)" onClick={()=>this.run(5)}/>
+					<input type="button" value="приближение (zoom ++)" onClick={()=>this.run(4)}/>
+					<input type="button" value="приближение (zoom --)" onClick={()=>this.run(5)}/>
+				</div>
+				<div>
+					<Block_View/>
 				</div>
 			</div>
 	
