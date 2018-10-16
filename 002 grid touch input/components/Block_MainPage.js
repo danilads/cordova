@@ -74,7 +74,7 @@ class Block_MainPage extends React.PureComponent {
 	}
   	render() {
 		return (
-			<div className="Block_MainPage container-fluid" style={{backgroundColor:this.state.color}}>
+			<div className="Block_MainPage" style={{backgroundColor:this.state.color}}>
 
 				<div className="row no-gutters">
 					<div className="col-12"><Filter>{this.state.txt}</Filter></div>
