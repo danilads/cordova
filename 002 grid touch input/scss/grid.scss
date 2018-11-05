@@ -1,10 +1,10 @@
 //variables
 $grid-breakpoints: (
         xxs: 0,
-        xs: 576px,
+        xs: 672px,
         sm: 768px,
-        md: 992px,
-        lg: 1200px,
+        md: 984px,
+        lg: 1280px,
         xl: 1600px
 ) !default;
 
@@ -12,17 +12,31 @@ $grid-breakpoints: (
 //
 // Define the maximum width of `.container` for different screen sizes.
 $container-max-widths: (
-        xs: 540px,
-        sm: 720px,
-        md: 960px,
-        lg: 1140px,
-        xl: 1332px
+        sm: 722px,	//688+32
+        md: 864px, 	//824+40
+        lg: 1152px, //1104+48
+        xl: 1152px  //1104+48
 ) !default;
+
 
 //Количество колонок
 $grid-columns: 12 !default;
-//
-$grid-gutter-width: 30px !default;
+
+
+//Gutters
+$grid-gutter-width: (
+		xxs: 18px,
+        xs: 40px,
+        sm: 32px,
+        md: 40px,
+        lg: 48px,
+        xl: 48px
+) !default;
+
+
+
+
+
 
 //functions
 @function breakpoint-next($name, $breakpoints: $grid-breakpoints, $breakpoint-names: map-keys($breakpoints)) {
@@ -70,14 +84,13 @@ $grid-gutter-width: 30px !default;
 	}
 }
 
-@mixin make-grid-columns($columns: $grid-columns, $gutter: $grid-gutter-width, $breakpoints: $grid-breakpoints) {
+@mixin make-grid-columns($columns: $grid-columns, $breakpoints: $grid-breakpoints) {
 	// Common properties for all breakpoints
 	%grid-column {
 		position: relative;
 		width: 100%;
 		min-height: 1px; // Prevent columns from collapsing when empty
-		padding-right: ($gutter / 2);
-		padding-left: ($gutter / 2);
+		@include make-grid-gutter-width(2, true);
 	}
 
 	@each $breakpoint in map-keys($breakpoints) {
@@ -137,10 +150,9 @@ $grid-gutter-width: 30px !default;
 // Generate semantic grid columns with these mixins.
 @mixin make-container() {
 	width: 100%;
-	padding-right: ($grid-gutter-width / 2);
-	padding-left: ($grid-gutter-width / 2);
 	margin-right: auto;
 	margin-left: auto;
+	@include make-grid-gutter-width(2, true);
 }
   
   
@@ -148,16 +160,32 @@ $grid-gutter-width: 30px !default;
 @mixin make-container-max-widths($max-widths: $container-max-widths, $breakpoints: $grid-breakpoints) {
 	@each $breakpoint, $container-max-width in $max-widths {
 		@include respond-up($breakpoint, $breakpoints) {
-		max-width: $container-max-width;
+			max-width: $container-max-width;
 		}
 	}
 }
-  
+
+//создаем кастомные gutters
+//1 аргумент на что делим
+//2 аргумент isPadding (если true padding / false margin)
+@mixin make-grid-gutter-width($divider, $isPadding) {
+	@each $breakpoint, $current-width in $grid-gutter-width {
+		@include respond-up($breakpoint, $grid-breakpoints) {
+			@if $isPadding{
+				padding-right: ($current-width / $divider);
+				padding-left: ($current-width / $divider);
+			} @else {
+				margin-right: ($current-width / $divider);
+				margin-left: ($current-width / $divider);
+			}
+		}
+	}
+}
+
 @mixin make-row() {
 	display: flex;
 	flex-wrap: wrap;
-	margin-right: ($grid-gutter-width / -2);
-	margin-left: ($grid-gutter-width / -2);
+	@include make-grid-gutter-width(-2, false);
 }
   
 @mixin make-col-ready() {
@@ -167,8 +195,7 @@ $grid-gutter-width: 30px !default;
 	// later on to override this initial width.
 	width: 100%;
 	min-height: 1px; // Prevent collapsing
-	padding-right: ($grid-gutter-width / 2);
-	padding-left: ($grid-gutter-width / 2);
+	@include make-grid-gutter-width(2, true);
 }
   
 @mixin make-col($size, $columns: $grid-columns) {
@@ -183,15 +210,18 @@ $grid-gutter-width: 30px !default;
 	$num: $size / $columns;
 	margin-left: if($num == 0, 0, percentage($num));
 }
+.container-fluid {
+    @include make-container();
+}
 
 .container {
 	@include make-container();
 	@include make-container-max-widths();
 }
-
 .row {
 	@include make-row();
 }
+
 
 // Remove the negative margin from default .row, then the horizontal padding
 // from all immediate children columns (to prevent runaway style inheritance).
