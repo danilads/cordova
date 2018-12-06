@@ -20,7 +20,7 @@
 //СОЗДАНИЕ
 //////////
 
-//hello - название папки, HelloWorld - название приложения
+//hello - название папки, HelloWorld - название приложения (нельзя сохранить на android 2 приложения с одинаковым именем)
 01 (cordova create 001_test1 com.example.hello HelloWorld)
 
 
