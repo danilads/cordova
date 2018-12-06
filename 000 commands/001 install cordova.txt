@@ -2,10 +2,10 @@
 //УСТАНОВКА
 ///////////
 
-01 install node js
-02 install cordova - (sudo install -g cordova)
-03 instal Java SE Development Kit 8 Downloads
-04 install Android Studio
+01 устанавливаем node js
+02 устанавливаем  cordova - (sudo install -g cordova)
+03 устанавливаем  Java SE Development Kit 8 Downloads
+04 устанавливаем  Android Studio
 05 заходим в android sdk и создаем новый файл (программе нужно скачать дополнительные файлы)
 06 проверяем состояние (cordova requirements)
 
@@ -34,22 +34,3 @@ or
 //BUILD (файл apk находится в platforms/android/app/build/outputs/apk/debug)
 03 cordova build android
 
-//////////
-//GIT
-//////////
-01 пушим только папку www
-
-*
-!/www
-!/www/**
-!.npmignore
-
-
-//////////
-//plugins
-//////////
-
-cordova plugin add cordova-plugin-screen-orientation
-
-//пишем в body
-//screen.orientation.lock('landscape');
