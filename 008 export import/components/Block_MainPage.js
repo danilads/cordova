@@ -25,12 +25,7 @@ class Block_MainPage extends React.PureComponent {
 	}
 	run=()=>{
 		console.log('hello');
-		fetch('https://raw.githubusercontent.com/danilads/examples/master/001%20webpack/777-%20dota/jsonBackUp/abilities.json')
-			.then(response => response.json())
-			.then(data => {
-				this.setState({ data })
-				console.log(data)
-			});
+	
 	}
 	
 	render() {
@@ -43,20 +38,10 @@ class Block_MainPage extends React.PureComponent {
 					<input type="button" value="приближение (zoom --)" onClick={()=>this.run(5)}/>
 				</div> */}
 				<div>
-					<div>
-						{
-							this.state&&
-							this.state.data&&
-							this.state.data.abilitydata&&
-							this.state.data.abilitydata.abaddon_death_coil&&
-							this.state.data.abilitydata.abaddon_death_coil.dname
-						}
-					</div>
-					<div>
-						<img src="https://www.accengage.com/wp-content/uploads/2016/04/picto-web-push.png" />
-					</div>
+			
 					<div>
 						<input onClick={this.run} type="button" value="run" />
+						
 					</div>
 					
 				</div>

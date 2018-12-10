@@ -36,3 +36,17 @@ or
 //BUILD (файл apk находится в platforms/android/app/build/outputs/apk/debug)
 03 cordova build android
 
+
+////////////
+//Плагины
+////////////
+// для использование плагинов нужно проверить загружена ли cordova api
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    function onDeviceReady() {
+        // Now safe to use device APIs
+    }
+
+// в index.html нужно добавить
+// <script type="text/javascript" src="cordova.js"></script>
+
