@@ -35,7 +35,7 @@ or
 
 //BUILD (файл apk находится в platforms/android/app/build/outputs/apk/debug)
 03 cordova build android
-
+ 
 
 ////////////
 //Плагины
