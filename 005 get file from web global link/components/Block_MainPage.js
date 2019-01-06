@@ -25,7 +25,7 @@ class Block_MainPage extends React.PureComponent {
 	}
 	run=()=>{
 		console.log('hello');
-		fetch('https://raw.githubusercontent.com/danilads/examples/master/001%20webpack/777-%20dota/jsonBackUp/abilities.json')
+		fetch('https://cors-anywhere.herokuapp.com/https://www.dota2.com/jsfeed/heropediadata?feeds=abilitydata&l=english')
 			.then(response => response.json())
 			.then(data => {
 				this.setState({ data })
