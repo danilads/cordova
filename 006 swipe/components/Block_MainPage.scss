@@ -1,0 +1,18 @@
+.container{
+    position: relative;
+    overflow: hidden;
+}
+.menu{
+    z-index: 99;
+    width: 40%;
+    position: fixed;
+    right: 0;
+    height: 100vh;
+    top: 0;
+    background: #cef;
+    border: 1px solid black;
+    transition: all 0.5s;
+}
+.show{
+    right: -100vw;
+}
