@@ -27,6 +27,7 @@
 
 
 
+
 // В ПАПКЕ ПРОЕКТА - добавляем платформу
 02
 (cordova platform add android)
@@ -40,6 +41,30 @@ or
 ////////////
 //Плагины
 ////////////
+01 устанавливаем проект
+        cordova create 004fds com.example.test2 test2
+02 устанавливаем платформу
+        cordova platform add android
+02 утсанавливаем  plugin в папке с проектом
+        cordova plugin add cordova-plugin-splashscreen
+03 в файл config.xml - в <platform name="android"> добавляем
+        <splash src="res/screen/android/screen-hdpi-landscape.png" density="land-hdpi"/>
+        <splash src="res/screen/android/screen-ldpi-landscape.png" density="land-ldpi"/>
+        <splash src="res/screen/android/screen-mdpi-landscape.png" density="land-mdpi"/>
+        <splash src="res/screen/android/screen-xhdpi-landscape.png" density="land-xhdpi"/>
+        
+        <splash src="res/screen/android/screen-hdpi-portrait.png" density="port-hdpi"/>
+        <splash src="res/screen/android/screen-ldpi-portrait.png" density="port-ldpi"/>
+        <splash src="res/screen/android/screen-mdpi-portrait.png" density="port-mdpi"/>
+        <splash src="res/screen/android/screen-xhdpi-portrait.png" density="port-xhdpi"/>
+04 в файл config.xml - наравне с <platform name="android"> добавляем
+где SplashScreenDelay - задержка , ShowSplashScreenSpinner - спинер
+        <preference name="SplashScreenDelay" value="3000" />
+        <preference name="ShowSplashScreenSpinner" value="false" />
+
+//////////////////////////////////////
+//хз
+/////
 // для использование плагинов нужно проверить загружена ли cordova api
     document.addEventListener("deviceready", onDeviceReady, false);
 
