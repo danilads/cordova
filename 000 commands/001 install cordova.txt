@@ -4,7 +4,7 @@
 
 01 устанавливаем node js
 02 устанавливаем  cordova - (sudo npm install -g cordova)
-03 устанавливаем  Java SE Development Kit 8 Downloads (именно 8 версию!)
+03 устанавливаем  Java SE Development Kit 8 Downloads (именно 8 версию!!)
 04 устанавливаем  Android Studio
 05 заходим в android sdk и создаем новый файл (программе нужно скачать дополнительные файлы)
 06 проверяем состояние (cordova requirements)
