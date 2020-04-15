@@ -13,13 +13,12 @@
 06 проверяем состояние (cordova requirements)
 
 //если проблема с gradle
-//устанавливаем его через пакетный менеджер brew - https://gradle.org/install/
+//устанавливаем его через пакетный менеджер brew (установка brew в mac readme) - https://gradle.org/install/
 
 //если пробелема с версией 25 26 27 28
 //Please install Android target / API level: "android-27"
 заходим в android sdk - prefences - appearance & behavior - system settings - android sdk - android 9.0 8.1 8.0
 
-/
 
 //////////
 //СОЗДАНИЕ
