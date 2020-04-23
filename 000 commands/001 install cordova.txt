@@ -20,6 +20,7 @@
 заходим в android sdk - prefences - appearance & behavior - system settings - android sdk - android 9.0 8.1 8.0
 
 
+
 //////////
 //СОЗДАНИЕ
 //////////
